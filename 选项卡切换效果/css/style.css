@@ -1,0 +1,73 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.notice {
+	width: 498px;
+	height: 198px;
+	margin: 0 auto;
+	margin-top: 100px;
+	border: 1px solid #eee;
+}
+
+
+.notice_title {
+	height: 50px;
+	background: #eee;
+	position: relative;
+	text-align: center;
+}
+/*使用绝对布局使ul相对于notice_title左移1px，避免边界两个像素连在一起（粗线）*/
+.notice_title ul {
+	position: absolute;
+	width: 500px;
+	left: -1px;
+}
+
+.notice_title li {
+	float: left;
+	list-style-type: none;
+	width: 98px;
+	line-height: 49px;
+	height: 49px;
+	padding: 0px 1px;
+	border-bottom: 1px solid #E8E8E8;
+}
+
+.notice_title li.select {
+	border-bottom: 1px solid #fff;
+	border-left: 1px solid #eee;
+	border-right: 1px solid #eee;
+	background: #fff;
+	font-weight: bold;
+	padding: 0px;
+}
+
+.notice li a {
+	text-decoration: none;
+}
+
+.notice a:link, .notice a:visited {
+	color: #000;
+}
+
+.notice a:hover, .notice a:active {
+	color: #F70;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	margin: 15px;
+	text-align: center;
+}
+
+.notice_content li {
+	list-style-type: none;
+	width: 234px;
+	float: left;
+	margin-top: 30px;
+}
