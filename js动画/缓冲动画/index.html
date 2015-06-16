@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>缓冲动画</title>
+	<style type="text/css">
+		body {
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		/* 相对布局 */
+		#wrap {
+			height: 100px;
+			width: 200px;
+			background-color: #00f;
+			position: relative;
+			left: -200px;
+		}
+		
+		/* 绝对布局 */
+		#share {
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			background-color: #f00;
+			position: absolute;
+			left: 200px;
+			top: 25px;
+		}
+		
+	</style>
+	
+	<script type="text/javascript">
+	window.onload = function ()
+	{
+		var wrap = document.getElementById("wrap");
+		wrap.onmouseover = function()
+		{
+			startMove(0);
+		}
+		wrap.onmouseout = function()
+		{
+			startMove(-200);
+		}
+
+		var timer = null;
+		function startMove(target)
+		{
+			var speed;
+			// 速度根据offsetLeft变化 产生缓冲效果
+			speed = (target-wrap.offsetLeft)/20;
+			// 大于0 向上取整
+			speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+			// 每次先清除定时器
+			if (timer)
+			{
+				clearInterval(timer);
+			}
+			timer = setInterval(function()
+			{
+				// 终止定时器
+				if (wrap.offsetLeft == target)
+				{
+					clearInterval(timer);
+				}
+				else 
+				{
+					wrap.style.left = wrap.offsetLeft + speed + "px";
+				}
+			}, 100);
+		}
+	}
+	
+	</script>
+
+</head>
+<body>
+	<div id="wrap">
+		<span id="share">分享</span>
+	</div>
+</body>
+</html>
