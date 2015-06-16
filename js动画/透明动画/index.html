@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>透明动画</title>
+	<style type="text/css">
+		#content {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			/* IE 透明度 */
+			filter: alpha(opacity:30);
+			/* 非IE */
+			opacity: 0.3;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			var content = document.getElementById("content");
+			var alpha = 30;
+			// 鼠标移入
+			content.onmouseover = function()
+			{
+				startChange(100);
+			}
+			// 鼠标移出
+			content.onmouseout = function()
+			{
+				startChange(30);
+			}
+			
+			var timer = null;
+
+			function startChange(target)
+			{
+				// 每个时间间隔alpha的变化量
+				var speed;
+				if (alpha > target)
+				{
+					speed = -10;
+				}
+				else
+				{
+					speed = 10;
+				}
+				// 清除定时
+				if (timer)
+				{
+					clearInterval(timer);
+					timer = null;
+				}
+				timer = setInterval(function(){
+					if (alpha == target)
+					{
+						clearInterval(timer);
+						timer = null;
+					}
+					else
+					{
+						alpha += speed;
+						// IE
+						content.style.filter = "alpha(opacity:'alpha')";
+						// 非IE
+						content.style.opacity = alpha/100;
+					}
+				}, 200);
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<div id="content"></div>
+</body>
+</html>
