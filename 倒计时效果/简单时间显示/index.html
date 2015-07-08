@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单时间显示</title>
+	<style type="text/css">
+		body {
+			background-color: #0ff;
+		}
+		#show {
+			margin: 200px auto;
+			width: 400px;
+			height: 200px;
+			line-height: 200px;
+			border: 6px solid #000;
+			text-align: center;
+			font-size: 26px;
+			color: #f0f;
+			background-color: #fff;
+		}
+	</style>
+
+	<script type="text/javascript">
+
+		window.onload = function()
+		{
+			showTime();
+		}
+		// 显示当前时间
+		function showTime()
+		{
+			var now = new Date();
+			var year = now.getFullYear();
+			var month = now.getMonth() + 1;
+			var date = now.getDate();
+
+			var day = now.getDay();
+			var weekday = new Array(7);
+			weekday[0] = "星期日";
+			weekday[1] = "星期一";
+			weekday[2] = "星期二";
+			weekday[3] = "星期三";
+			weekday[4] = "星期四";
+			weekday[5] = "星期五";
+			weekday[6] = "星期六";
+			var hour = now.getHours();
+			var minute = now.getMinutes();
+			var second = now.getSeconds();
+
+			minute = checkTime(minute);
+			second = checkTime(second);
+
+			document.getElementById("show").innerHTML = "" + year + "年" + month + "月" + date + "日 " + weekday[day] + hour + ":" + minute + ":" + second;
+			// 循环调用 
+			setTimeout(showTime, 1000);
+			// （注意函数用引号括起来）
+			// setTimeout('showTime()', 1000);
+		}
+		// 分钟和秒小于10时加0
+		function checkTime(t)
+		{
+			if (t < 10)
+			{
+				return '0' + t;
+			}
+			else
+			{
+				return t;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="show"></div>
+</body>
+</html>
