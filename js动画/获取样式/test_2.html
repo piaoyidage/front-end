@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取样式二</title>
+	<style type="text/css">
+		#test {
+			width: 300px;
+			height: 300px;
+			background-color: #f0f;
+			border: 2px solid #000;
+			filter: alpha(opacity:30);
+			opacity: 0.3;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			var test = document.getElementById("test");
+
+			test.onmouseover = function()
+			{
+				startMove(this, 'opacity', 100);
+			}
+			test.onmouseout = function()
+			{
+				startMove(this, 'opacity', 30);
+			}
+		}
+		var timer = null;
+		function startMove(obj, attr, target)
+		{
+			if (timer)
+			{
+				clearInterval(timer);
+				timer = null;
+			}
+			timer = setInterval(function()
+			{
+				var cur;
+				// 对于透明度特殊考虑
+				if (attr == 'opacity')
+				{
+					cur = Math.round(parseFloat(getStyle(obj, attr))*100);
+				}
+				else
+				{
+					cur = parseInt(getStyle(obj, attr));
+				}
+				var speed = (target-cur) / 20;
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+				if (cur == target)
+				{
+					clearInterval(timer);
+					timer = null;
+				}
+				else
+				{
+					if (attr == 'opacity')
+					{
+						obj.style['filter'] = "alpha(opacity:" + cur + speed + ")";
+						obj.style[attr] = (cur+speed) / 100;
+					}
+					else
+					{
+						obj.style[attr] = cur + speed + 'px';
+					}
+				}
+
+			}, 100);
+		}
+
+		function getStyle(obj, attr)
+		{
+			if(obj.currentStyle)
+			{
+				return obj.currentStyle[attr];
+			}
+			else
+			{
+				return getComputedStyle(obj, false)[attr];
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="test"></div>
+</body>
+</html>

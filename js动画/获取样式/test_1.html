@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取样式一</title>
+	<style type="text/css">
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: #ff0;
+			border: 2px solid #000;
+			margin-bottom: 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			var first = document.getElementById("first");
+			var second = document.getElementById("second");
+
+			first.timer = null;
+			second.timer = null;
+
+			first.onmouseover = function()
+			{
+				startMove(this, 'width', 600);
+			}
+			first.onmouseout = function()
+			{
+				startMove(this, 'width', 200);
+			}
+
+			second.onmouseover = function()
+			{
+				startMove(this, 'height', 600);
+			}
+			second.onmouseout = function()
+			{
+				startMove(this, 'height', 100);
+			}
+
+		}
+
+		function startMove(obj, attr, target)
+		{
+			if (obj.timer)
+			{
+				clearInterval(obj.timer);
+				obj.timer = null;
+			}
+			obj.timer = setInterval(function()
+			{
+				// 获取当前属性值
+				var cur = parseInt(getStyleValue(obj, attr));
+				if (cur < target)
+				{
+					speed = 10;
+				}
+				else
+				{
+					speed = -10;
+				}
+				if (cur == target)
+				{
+					clearInterval(obj.timer);
+					obj.timer = null;
+				}
+				else
+				{
+					obj.style[attr] = cur + speed + 'px';
+				}
+			}, 100);
+		}
+		// 获取属性
+		function getStyleValue(obj, attr)
+		{
+			if (obj.currentStyle)
+			{
+				return obj.currentStyle[attr];
+			}
+			else
+			{
+				return getComputedStyle(obj, false)[attr];
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="first"></div>
+	<div id="second"></div>
+</body>
+</html>

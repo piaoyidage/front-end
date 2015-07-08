@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取样式</title>
+	<style type="text/css">
+		div {
+			padding: 0px;
+			margin: 0px;
+			width: 400px;
+			height: 300px;
+			background-color: #f00;
+			border: 2px solid #000;
+		}
+	</style>
+	<script type="text/javascript">
+		
+		window.onload = function()
+		{
+		// var d = document.getElementById("wrap");
+		// 只有是行内样式时，d.style.width方有值
+		// alert(d.style.width);
+		// alert(parseInt(getStyle(d, "width")));
+		setInterval(function()
+		{
+			startMove();
+		}, 50);
+	}
+
+	function startMove()
+	{
+		var d = document.getElementById("wrap");
+		d.style.fontSize = parseInt(getStyle(d, 'fontSize')) + 1 + "px";
+	}
+	// 获取样式
+	function getStyle(obj, attr)
+	{
+		// IE
+		if (obj.currentStyle)
+		{
+			return obj.currentStyle[attr];
+		}
+		// 非IE
+		else(obj.getComputedStyle)
+		{
+			return getComputedStyle(obj, false)[attr];
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="wrap">变大</div>
+</body>
+</html>

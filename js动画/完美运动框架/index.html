@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>同时运动</title>
+	<style type="text/css">
+		#test {
+			width: 200px;
+			height: 100px;
+			border: 2px solid #000;
+			background-color: #0ff;
+			filter: alpha(opacity:30);
+			opacity: 0.3;
+		}
+	</style>
+	<script type="text/javascript" src="move.js"></script>
+	<script type="text/javascript">
+	window.onload = function()
+	{
+		var test = document.getElementById("test");
+		test.onmouseover = function()
+		{
+			// 同时宽度 高度 透明度
+			
+			startMove(this, {'width':400, 'height':200, 'opacity':100});
+		}
+		test.onmouseout = function()
+		{
+			startMove(this, {'width':200, 'height':100, 'opacity':30});
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="test"></div>
+</body>
+</html>
