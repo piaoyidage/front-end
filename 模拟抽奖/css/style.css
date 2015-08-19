@@ -1,0 +1,50 @@
+/* 
+* @Author: Huge
+* @Date:   2015-08-19 12:43:34
+* @Last Modified by:   Huge
+* @Last Modified time: 2015-08-19 13:37:55
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#title {
+    width: 140px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #f00;
+    margin: 0 auto;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+#btnArea {
+    margin: 0 auto;
+    /*height: 20px;*/
+    width: 180px;
+    text-align: center;
+}
+
+#btnStart, #btnStop{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ccc;
+    webkit-border-radius: 5px;
+    moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #00f;
+    font-family: "微软雅黑";
+}
+
+#btnStart {
+    float: left;
+}
+
+#btnStop {
+    float: right;
+}
