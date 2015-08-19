@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>QQ面板，可拖拽，可切换状态</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/drag.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <!-- QQ最外层面板 -->
+    <div class="loginPanel" id="loginPanel">
+        <!-- 关闭按钮 -->
+        <div style="position: relative; z-index: 1;">
+            <div class="btnClose" id="btnClose"></div>
+        </div><!-- 关闭按钮 结束 -->
+        <!-- logo(可拖拽) -->
+        <div class="logoWebQQ" id="logoWebQQ"></div>
+        <!-- logo 结束 -->
+        <!-- 登录输入区 -->
+        <div class="inputArea">
+            <!-- 用户名 -->
+            <div class="inputItem">
+                <span>帐 号：</span>
+                <input type="text" id="user" name="user" autocomplete='on' placeholder="QQ号或者Email" tabindex="2" 
+                onblur="if(placeholder===''){placeholder='QQ号或者Email';}"
+                onfocus="if(placeholder){placeholder='';}" >
+                </input>
+            </div><!-- 用户名 结束 -->
+            <!-- 密码 -->
+            <div class="inputItem">
+                <span>密 码：</span>
+                <input type="password" id="passwd" name="passwd" maxlength="16" tabindex="2"></input>
+            </div><!-- 密码 结束-->
+        </div><!-- 登录输入区 结束 -->
+        <!-- 底部登录按钮以及状态选择区 -->
+        <div id="bottomArea">
+            <!-- 登录按钮 -->
+            <div id="btnLogin"></div><!-- 登录按钮 结束-->
+            <!-- 登录状态 -->
+            <div id="loginState">
+                <!-- 登录状态图标 -->
+                <div id="loginStateIcon" class="loginStateShow online">登录状态</div><!-- 登录状态图标 结束 -->
+                <!-- 登录选择下选 -->
+                <div id="loginStateDown">下</div><!-- 登录选择下选 结束 -->
+                <!-- 登录状态文字 -->
+                <div id="loginStateText">在线</div><!-- 登录状态文字 结束 -->
+                <!-- 登录状态选择面板 -->
+                <ul class="loginStatePanel" id="loginStatePanel">
+                    <li id="online">
+                        <div class="stateSelectIcon online"></div>
+                        <div class="stateSelectText">我在线上</div>
+                    </li>
+                    <li id="callme">
+                        <div class="stateSelectIcon callme"></div>
+                        <div class="stateSelectText">Q我吧</div>
+                    </li>
+                    <li id="away">
+                        <div class="stateSelectIcon away"></div>
+                        <div class="stateSelectText">离开</div>
+                    </li>
+                    <li id="busy">
+                        <div class="stateSelectIcon busy"></div>
+                        <div class="stateSelectText">忙碌</div>
+                    </li>
+                    <li id="silent">
+                        <div class="stateSelectIcon silent"></div>
+                        <div class="stateSelectText">请勿打扰</div>
+                    </li>
+                    <li id="hidden">
+                        <div class="stateSelectIcon hidden"></div>
+                        <div class="stateSelectText">隐身</div>
+                    </li>
+                </ul> <!-- 登录状态选择面板结束 -->
+            </div><!-- 登录状态 结束 -->
+        </div><!-- 底部登录按钮以及状态选择区 结束 -->
+    </div><!-- QQ最外层面板 结束 -->
+</body>
+
+</html>

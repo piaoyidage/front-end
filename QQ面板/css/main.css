@@ -1,0 +1,182 @@
+/* 
+* @Author: Huge
+* @Date:   2015-08-18 20:00:58
+* @Last Modified by:   Huge
+* @Last Modified time: 2015-08-19 10:53:10
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* QQ最外层面板 */
+#loginPanel {
+    width: 498px;
+    height: 298px;
+    position: absolute;
+    top: 120px;
+    left: 380px;
+    border: 1px solid #ccc;
+    background: #f6f6f6;
+    /*圆角*/
+    webkit-border-radius: 10px;
+    moz-border-radius: 10px;
+    border-radius: 10px;
+    /*边界阴影*/
+    webkit-box-shadow: 0 0 10px #000;
+    moz-box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px #000;
+}
+
+/* 关闭按钮 */
+#btnClose {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    cursor: pointer;
+    background: url(../images/btn_close.png) no-repeat;
+    z-index: 1;
+}
+
+/* logo 可拖拽 */
+#logoWebQQ {
+    width: 200px;
+    height: 44px;
+    background: url(../images/logo.png) -200px 0 no-repeat;
+    margin-left: 160px;
+    margin-top: 10px;
+    cursor: move;
+}
+
+/* 登录输入区 */
+.inputArea {
+    margin-left: 100px;
+    margin-top: 20px;
+    font: bold 16px Arial;
+}
+
+.inputArea .inputItem {
+    padding-bottom: 20px;
+}
+
+/* 输入项 */
+.inputItem input {
+    width: 200px;
+    height: 20px;
+    webkit-border-radius: 8px;
+    moz-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* 底部登录按钮以及状态选择区 */
+#bottomArea {
+    margin-left: 100px;
+}
+
+/* 登录按钮 */
+#btnLogin {
+    background: url(../images/btn_login.png) -112px 0 no-repeat;
+    width: 108px;
+    height: 36px;
+    cursor: pointer;
+    float: left;
+}
+
+/* 登录状态 */
+#loginState {
+    width: 200px;
+    height: 16px;
+    float: left;
+    cursor: pointer;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+/* 登录状态图标 */
+#loginStateIcon {
+    width: 14px;
+    height: 14px;
+    float: left;
+    text-indent: -999em;
+}
+
+/* 登录选择下选 */
+#loginStateDown {
+    background: url(../images/login_state.png) 0 -22px no-repeat transparent;
+    width: 7px;
+    height: 6px;
+    float: left;
+    text-indent: -999em;
+    margin: 5px 8px;
+}
+
+/* 登录状态文字 */
+#loginStateText {
+    float: left;
+    font-size: 12px;
+}
+
+.online {
+    background: url(../images/login_state.png) 0 0 no-repeat;
+}
+
+.away {
+    background: url(../images/login_state.png) -17px 0 no-repeat;
+}
+
+.callme {
+    background: url(../images/login_state.png) -72px 0 no-repeat;
+}
+
+.busy {
+    background: url(../images/login_state.png) -35px 0 no-repeat;
+}
+
+.hidden {
+    background: url(../images/login_state.png) -54px 0 no-repeat;
+}
+
+.silent {
+    background: url(../images/login_state.png) -108px 0 no-repeat;
+}
+
+/* 登录状态面板 */
+#loginStatePanel {
+    display: none;
+    position: absolute;
+    top: 226px;
+    right: 128px;
+    width: 100px;
+    z-index: 10;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc #6a6a6a #666 #cdcdcd;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+#loginStatePanel li {
+    display: block;
+    width: 100px;
+    height: 16px;
+    line-height: 16px;
+    padding: 3px 3px;
+    cursor: pointer;
+}
+
+.stateSelectIcon {
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    float: left;
+    margin: 2px 5px 0 0;
+}
+
+.stateSelectText {
+   
+}
