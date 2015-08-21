@@ -15,6 +15,7 @@ function startMove(obj, json, fn) {
 			}
 			// 速度
 			var speed = (json[attr] - cur) / 20;
+			// 判断速度
 			speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 
 			if (cur != json[attr]) {
@@ -30,7 +31,7 @@ function startMove(obj, json, fn) {
 				obj.style[attr] = cur + speed + 'px';
 			}
 		}
-
+		// 如果动画结束，执行后续函数
 		if (flag) {
 			clearInterval(obj.timer);
 			obj.timer = null;
@@ -44,9 +45,12 @@ function startMove(obj, json, fn) {
 }
 // 获取属性
 function getStyle(obj, attr) {
+	// IE
 	if (obj.currentStyle) {
 		return obj.currentStyle[attr];
-	} else {
+	}
+	// 非IE
+	else {
 		return getComputedStyle(obj, false)[attr];
 	}
 }
