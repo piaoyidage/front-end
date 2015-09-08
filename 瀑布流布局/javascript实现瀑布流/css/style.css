@@ -1,0 +1,31 @@
+/* 
+* @Author: Huge
+* @Date:   2015-09-06 21:35:30
+* @Last Modified by:   Huge
+* @Last Modified time: 2015-09-06 22:10:05
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#main {
+    position: relative;
+}
+
+.box {
+    padding: 15px 0 0 15px;
+    float: left;
+}
+
+.pic {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.pic img{
+    width: 165px;
+}
