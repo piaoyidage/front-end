@@ -6,16 +6,39 @@ window.onload = function(){
         height = ctx.canvas.height,
         r = width / 2;
     
-    // 调用画clock
-    drawCircle();    
-    drawHours(4, 30);
-    drawMinutes(30, 30);
-    drawDot();
+
+    
+    
+    setInterval(dynamicDraw, 1000);
+    
+    function dynamicDraw(){
+        ctx.clearRect(0, 0, width, height);
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        
+        // 调用画clock
+        drawCircle();    
+        // drawHours(4, 30);
+        // drawMinutes(30, 30);
+        // drawSeconds(45);
+        drawDot();
+        
+        drawHours(hours, minutes);
+        drawMinutes(minutes, seconds);
+        drawSeconds(seconds);
+        
+        ctx.restore();
+    }
+    
+    
     /**
      * [drawCircle 画圆]
      * @return {[type]} [description]
      */
     function drawCircle(){
+        ctx.save();
         // 重新映射画布上的 (0,0) 位置
         ctx.translate(r, r);
         ctx.beginPath();
@@ -82,6 +105,22 @@ window.onload = function(){
         ctx.moveTo(0, 10);
         ctx.lineTo(0, -r+60);
         ctx.stroke();
+        ctx.restore();
+    }
+    
+    function drawSeconds(second){
+        // TODO
+        ctx.save();
+        var radius = 2 * Math.PI / 60 * second;
+        ctx.rotate(radius);
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.fillStyle = "#f00";
+        ctx.moveTo(-2, 20);
+        ctx.lineTo(2, 20);
+        ctx.lineTo(1, -r+60);
+        ctx.lineTo(-1, -r+60);
+        ctx.fill();
         ctx.restore();
     }
     
